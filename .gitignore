@@ -1,0 +1,9 @@
+generator/target/
+generator/.settings/
+generator/.project/
+model/target/
+model/.settings/
+model/.project/
+.settings
+target
+.project
