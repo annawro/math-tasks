@@ -12,16 +12,9 @@ public class PolynomialsGenerator {
 
 	private static final Logger logger = Logger
 			.getLogger(PolynomialsGenerator.class);
-	private RootsGenerator rootsGenerator = new RootsGenerator();
 
-	public void setRootsGenerator(RootsGenerator rootsGenerator) {
-		this.rootsGenerator = rootsGenerator;
-	}
-
-	public Polynomial createPolynomial(int quantityOfRoots, int range) {
+	public Polynomial createPolynomial(List<Integer> rootsOfPolynomial) {
 		logger.debug("Create Polynomial beginning");
-		List<Integer> rootsOfPolynomial = rootsGenerator.rootsOfPolynomial(
-				quantityOfRoots, range);
 
 		Polynomial polynomial = new Polynomial();
 		List<Monomial> factors = polynomial.getFactors();
@@ -31,7 +24,7 @@ public class PolynomialsGenerator {
 			factors.add(new Monomial(1, 0));
 
 			for (int root : rootsOfPolynomial) {
-				 polynomial.setFactors(this.factorsMultiply(polynomial, root));
+				polynomial.setFactors(this.factorsMultiply(polynomial, root));
 			}
 		}
 

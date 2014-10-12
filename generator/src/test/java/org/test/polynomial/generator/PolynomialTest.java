@@ -3,10 +3,7 @@ package org.test.polynomial.generator;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
-
-import org.easymock.EasyMock;
 import org.generator.polynomial.PolynomialsGenerator;
-import org.generator.polynomial.RootsGenerator;
 import org.junit.Test;
 
 import pl.tasks.model.Monomial;
@@ -22,17 +19,11 @@ public class PolynomialTest {
 	@Test
 	public void createPolynomialTest() {
 		// given
-		int quantityOfRoots = 3;
-		int range = 10;
-		RootsGenerator generator = EasyMock.createMock(RootsGenerator.class);
-		EasyMock.expect(generator.rootsOfPolynomial(quantityOfRoots, range))
-				.andReturn(Lists.newArrayList(5, 1, 2));
-		EasyMock.replay(generator);
-		polynomialsGenerator.setRootsGenerator(generator);
+		List<Integer> rootsOfPolynomial = Lists.newArrayList(5, 1, 2);
 		// when
-		Polynomial polynomial = polynomialsGenerator.createPolynomial(
-				quantityOfRoots, range);
-		
+		Polynomial polynomial = polynomialsGenerator
+				.createPolynomial(rootsOfPolynomial);
+
 		// then
 		assertEquals(4, polynomial.getFactors().size());
 		assertEquals(new Monomial(1, 3), polynomial.getFactors().get(0));
@@ -54,18 +45,13 @@ public class PolynomialTest {
 	@Test
 	public void valuePolynomialInPointTest() {
 		double point = -1.0;
-		int quantityOfRoots = 3;
-		int range = 10;
-		RootsGenerator generator = EasyMock.createMock(RootsGenerator.class);
-		EasyMock.expect(generator.rootsOfPolynomial(quantityOfRoots, range))
-				.andReturn(Lists.newArrayList(5, 1, 2));
-		EasyMock.replay(generator);
-		polynomialsGenerator.setRootsGenerator(generator);
+		List<Integer> rootsOfPolynomial = Lists.newArrayList(5, 1, 2);
 		// when
-		Polynomial polynomial = polynomialsGenerator.createPolynomial(
-				quantityOfRoots, range);
+		Polynomial polynomial = polynomialsGenerator
+				.createPolynomial(rootsOfPolynomial);
 
-		System.out.println(polynomialsGenerator.valueOfPolynomialInPoint(polynomial,point));
+		System.out.println(polynomialsGenerator.valueOfPolynomialInPoint(
+				polynomial, point));
 		assertEquals(4, polynomial.getFactors().size());
 	}
 
