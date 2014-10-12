@@ -60,4 +60,21 @@ public class Monomial {
 		return "";
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Monomial other = (Monomial) obj;
+		if (coefficient != other.coefficient)
+			return false;
+		if (power != other.power)
+			return false;
+		return true;
+	}
+	
+
 }
