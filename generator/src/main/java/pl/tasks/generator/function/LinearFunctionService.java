@@ -1,10 +1,10 @@
-package org.generator.function;
+package pl.tasks.generator.function;
 
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.generator.polynomial.RootsGenerator;
 
+import pl.tasks.generator.polynomial.RootsGenerator;
 import pl.tasks.model.LinearFunction;
 
 public class LinearFunctionService {

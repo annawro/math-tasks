@@ -6,9 +6,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import org.generator.polynomial.PolynomialsGenerator;
-import org.generator.polynomial.RootsGenerator;
-
+import pl.tasks.generator.polynomial.PolynomialsGenerator;
+import pl.tasks.generator.polynomial.RootsGenerator;
 import pl.tasks.model.Polynomial;
 
 @ManagedBean

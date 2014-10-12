@@ -1,11 +1,11 @@
-package org.generator.sequences;
+package pl.tasks.generator.sequences;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.generator.polynomial.RootsGenerator;
 
+import pl.tasks.generator.polynomial.RootsGenerator;
 import pl.tasks.model.GeometricSequence;
 
 public class GeometricSequencesGenerator {

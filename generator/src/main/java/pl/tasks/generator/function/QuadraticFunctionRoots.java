@@ -1,4 +1,4 @@
-package org.generator.function;
+package pl.tasks.generator.function;
 
 import java.util.ArrayList;
 import java.util.List;

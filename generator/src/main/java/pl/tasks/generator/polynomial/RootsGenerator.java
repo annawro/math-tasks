@@ -1,4 +1,4 @@
-package org.generator.polynomial;
+package pl.tasks.generator.polynomial;
 
 import java.util.ArrayList;
 import java.util.List;

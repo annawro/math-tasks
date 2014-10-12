@@ -1,7 +1,8 @@
-package org.test.function.service;
+package pl.tasks.generator.function;
 
-import org.generator.function.LinearFunctionService;
 import org.junit.Test;
+
+import pl.tasks.generator.function.LinearFunctionService;
 
 public class LinearFunctionServiceTest {
 	

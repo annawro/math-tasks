@@ -1,14 +1,14 @@
-package org.test.sequences.generator;
+package pl.tasks.generator.sequences;
 
 import static org.junit.Assert.*;
 
 import java.util.List;
 
 import org.easymock.EasyMock;
-import org.generator.polynomial.RootsGenerator;
-import org.generator.sequences.ArithmeticSequencesGenerator;
 import org.junit.Test;
 
+import pl.tasks.generator.polynomial.RootsGenerator;
+import pl.tasks.generator.sequences.ArithmeticSequencesGenerator;
 import pl.tasks.model.ArithmeticSequence;
 
 import com.google.common.collect.Lists;

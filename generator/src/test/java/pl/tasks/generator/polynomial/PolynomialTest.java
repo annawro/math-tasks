@@ -1,11 +1,12 @@
-package org.test.polynomial.generator;
+package pl.tasks.generator.polynomial;
 
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
-import org.generator.polynomial.PolynomialsGenerator;
+
 import org.junit.Test;
 
+import pl.tasks.generator.polynomial.PolynomialsGenerator;
 import pl.tasks.model.Monomial;
 import pl.tasks.model.Polynomial;
 

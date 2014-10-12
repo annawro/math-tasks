@@ -1,11 +1,12 @@
-package org.test.function.service;
+package pl.tasks.generator.function;
 
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
-import org.generator.function.QuadraticFunctionRoots;
 import org.junit.Test;
+
+import pl.tasks.generator.function.QuadraticFunctionRoots;
 
 public class QuadraticFunctionRootsTest {
 	private QuadraticFunctionRoots quadraticFunctionRoots = new QuadraticFunctionRoots();

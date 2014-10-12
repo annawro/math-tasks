@@ -1,4 +1,4 @@
-package org.generator.sequences;
+package pl.tasks.generator.sequences;
 
 import java.util.List;
 

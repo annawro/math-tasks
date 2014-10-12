@@ -1,17 +1,17 @@
-package org.test.sequences.generator;
+package pl.tasks.generator.sequences;
 
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
 import org.easymock.EasyMock;
-import org.generator.polynomial.RootsGenerator;
-import org.generator.sequences.ArithmeticSequencesGenerator;
-import org.generator.sequences.GeometricSequencesGenerator;
-import org.generator.sequences.SequencesService;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import pl.tasks.generator.polynomial.RootsGenerator;
+import pl.tasks.generator.sequences.ArithmeticSequencesGenerator;
+import pl.tasks.generator.sequences.GeometricSequencesGenerator;
+import pl.tasks.generator.sequences.SequencesService;
 import pl.tasks.model.ArithmeticSequence;
 import pl.tasks.model.GeometricSequence;
 
