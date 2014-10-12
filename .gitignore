@@ -4,6 +4,9 @@ generator/.project/
 model/target/
 model/.settings/
 model/.project/
+web/target
+web/.settings/
+web/.project/
 .settings
 target
 .project

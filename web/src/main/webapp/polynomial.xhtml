@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Polynomials</title>
+</h:head>
+
+<h:body>
+
+	<h2>Polynomials</h2>
+	<hr />
+
+	<h:form>
+		<h:panelGrid columns="3">
+			<h:outputLabel for="name" value="Task content:"
+				style="font-weight:bold" />
+			<p:inputTextarea rows="6" cols="28" id="name"
+				value="#{textContent.text}">
+				<p:ajax event="blur" update="out2" />
+			</p:inputTextarea>
+			<h:outputText id="out2" value="#{textContent.text}" />
+			<br></br>
+		</h:panelGrid>
+	</h:form>
+	<br></br>
+	<h:form id="form">
+
+		<h:outputLabel for="minMax" value="Polynomial degree: "
+			style="font-weight:bold" />
+		<h:outputLabel value="" />
+
+		<p:spinner id="minMax" value="#{spinnerView.degree}" min="0" max="100" />
+		<h:outputText id="display" escape="false"
+			value="#{spinnerView.polynomial}" />
+		<p:commandButton value="Submit"
+			update=":get:download,display,plot,polynomials" icon="ui-icon-check">
+			<p:collector value="#{spinnerView.polynomialWithRoots}"
+				addTo="#{collectorView.polynomialsWithRoots}" />
+			<f:setPropertyActionListener value="#{true}" target="#{bean.disable}" />
+		</p:commandButton>
+		<h:panelGrid columns="4">
+			<br></br>
+			<p:outputPanel id="polynomials">
+				<p:dataTable style="width:700px;"
+					value="#{collectorView.polynomialsWithRoots}"
+					var="polynomialWithRoots" id="polynomialsTable">
+
+					<p:column headerText="Polynomial">
+						<h:outputText escape="false"
+							value="#{polynomialWithRoots.polynomial}" />
+					</p:column>
+					<p:column headerText="PolynomialRoots">
+						<h:outputText value="#{polynomialWithRoots.rootsOfPolynomial}" />
+					</p:column>
+					<p:column headerText="Action">
+						<p:commandLink value="Remove" update=":form:polynomials"
+							process=":form:polynomials">
+							<p:collector value="#{polynomial}"
+								removeFrom="#{collectorView.polynomialsWithRoots}" unique="true" />
+						</p:commandLink>
+					</p:column>
+				</p:dataTable>
+			</p:outputPanel>
+		</h:panelGrid>
+		<p:chart id="plot" type="line" model="#{chartView.lineModel}"
+			style="height:300px;" />
+	</h:form>
+	<h:form id="get">
+		<p:commandButton value="Download" ajax="false" id="download"
+			onclick="PrimeFaces.monitorDownload(start, stop);"
+			icon="ui-icon-arrowthick-1-s">
+			<p:fileDownload value="#{fileDownloadView.file}" />
+		</p:commandButton>
+	</h:form>
+</h:body>
+</html>
