@@ -32,38 +32,37 @@
 		<h:outputLabel value="" />
 
 		<p:spinner id="minMax" value="#{spinnerView.degree}" min="0" max="100" />
-		<h:outputText id="display" escape="false"
-			value="#{spinnerView.polynomial}" />
-		<p:commandButton value="Submit"
-			update=":get:download,display,plot,polynomials" icon="ui-icon-check">
-			<p:collector value="#{spinnerView.polynomialWithRoots}"
-				addTo="#{collectorView.polynomialsWithRoots}" />
-			<f:setPropertyActionListener value="#{true}" target="#{bean.disable}" />
-		</p:commandButton>
-		<h:panelGrid columns="4">
-			<br></br>
-			<p:outputPanel id="polynomials">
-				<p:dataTable style="width:700px;"
-					value="#{collectorView.polynomialsWithRoots}"
-					var="polynomialWithRoots" id="polynomialsTable">
-
-					<p:column headerText="Polynomial">
-						<h:outputText escape="false"
-							value="#{polynomialWithRoots.polynomial}" />
-					</p:column>
-					<p:column headerText="PolynomialRoots">
-						<h:outputText value="#{polynomialWithRoots.rootsOfPolynomial}" />
-					</p:column>
-					<p:column headerText="Action">
-						<p:commandLink value="Remove" update=":form:polynomials"
-							process=":form:polynomials">
-							<p:collector value="#{polynomial}"
-								removeFrom="#{collectorView.polynomialsWithRoots}" unique="true" />
-						</p:commandLink>
-					</p:column>
-				</p:dataTable>
-			</p:outputPanel>
+		<h:panelGrid columns="3">
+			<h:outputText id="display" escape="false"
+				value="#{spinnerView.polynomial}" />
+			<p:commandButton value="Submit"
+				update=":get:download,display,plot,polynomials" icon="ui-icon-check">
+				<p:collector value="#{spinnerView.polynomialWithRoots}"
+					addTo="#{collectorView.polynomialsWithRoots}" />
+			</p:commandButton>
 		</h:panelGrid>
+		<br></br>
+		<p:outputPanel id="polynomials">
+			<p:dataTable style="width:1000px;"
+				value="#{collectorView.polynomialsWithRoots}"
+				var="polynomialWithRoots" id="polynomialsTable">
+
+				<p:column headerText="Polynomial">
+					<h:outputText escape="false"
+						value="#{polynomialWithRoots.polynomial}" />
+				</p:column>
+				<p:column headerText="PolynomialRoots">
+					<h:outputText value="#{polynomialWithRoots.rootsOfPolynomial}" />
+				</p:column>
+				<p:column headerText="Action">
+					<p:commandLink value="Remove" update=":form:polynomials"
+						process=":form:polynomials">
+						<p:collector value="#{polynomialWithRoots}"
+							removeFrom="#{collectorView.polynomialsWithRoots}" unique="true" />
+					</p:commandLink>
+				</p:column>
+			</p:dataTable>
+		</p:outputPanel>
 		<p:chart id="plot" type="line" model="#{chartView.lineModel}"
 			style="height:300px;" />
 	</h:form>
